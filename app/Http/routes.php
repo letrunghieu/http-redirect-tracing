@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'AppController@index');
+Route::post('/process', 'AppController@process');
+Route::get('/view', 'AppController@view');
 
 Route::get('home', 'HomeController@index');
 
