@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var Q = require('q');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +12,35 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.less('app.less');
-});
+function one() {
+    var deferred = Q.defer();
+    elixir(function (mix) {
+        mix.sass()
+                .coffee(['app.coffee'], 'resources/js')
+                .scripts(['modernizr.js'], 'public/js/modernizr.js')
+                .scripts(['jquery.js', 'bootstrap.js', 'app.js'], 'public/js/app.js')
+                .copy('resources/assets/fonts', 'public/build/fonts');
+        deferred.resolve();
+    });
+    return deferred.promise;
+}
+
+function two() {
+    var deferred = Q.defer();
+    elixir(function (mix) {
+        mix.version([
+            'css/app.css',
+            'js/app.js',
+            'js/modernizr.js'
+        ]);
+        deferred.resolve();
+    });
+
+    return deferred.promise;
+}
+
+
+
+one()
+        .then(two)
+        .done();
