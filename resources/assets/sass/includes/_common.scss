@@ -22,4 +22,7 @@ body {
             color: $input-color-placeholder;
         }
     }
+    #inner-form & {
+        margin-right: -22px;
+    }
 }
