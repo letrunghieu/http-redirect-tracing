@@ -22,7 +22,23 @@ body {
             color: $input-color-placeholder;
         }
     }
-    #inner-form & {
+    #result-page & {
         margin-right: -22px;
+    }
+}
+
+#result-page {
+    a {
+        font-family: $font-family-monospace;
+    }
+    h1 {
+        font-size: 20px;
+        margin: 0 0 10px;
+        color: lighten($text-color, 15%);
+        a {
+            &:link {
+                color: $text-color;
+            }
+        }
     }
 }
