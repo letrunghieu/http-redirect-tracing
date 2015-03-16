@@ -24,6 +24,9 @@ body {
     }
     #result-page & {
         margin-right: -22px;
+        @media (max-width: $screen-xs-max) {
+            margin-right: 0;
+        }
     }
 }
 
@@ -36,9 +39,37 @@ body {
         margin: 0 0 10px;
         color: lighten($text-color, 15%);
         a {
-            &:link {
-                color: $text-color;
-            }
+            color: lighten($text-color, 30%);
+            font-size: 0.8em;
+        }
+    }
+    .http-request {
+        line-height: 2em;
+        .http-status-code {
+            display: inline-block;
+            border-radius: 0;
+            font-size: 1em;
+            line-height: 2em;
+            margin-right: 0.5em;
+        }
+        .http-request-url {
+            font-family: $font-family-monospace;
+        }
+        &.warning {
+            background: rgba($brand-warning, 0.15);
+        }
+        &.success {
+            background: rgba($brand-success, 0.15);
+        }
+    }
+    .http-header {
+        td {
+            font-family: $font-family-monospace;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        .highlight {
+            background: $table-bg-accent;
         }
     }
 }

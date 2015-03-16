@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="submit"> 
-                <i class="glyphicon glyphicon-ok"></i>
+                <i class="fa fa-check"></i>
                 <span>
                     @lang('form.submit')
                 </span>
