@@ -70,6 +70,10 @@ body {
         }
         .highlight {
             background: $table-bg-accent;
+            td {
+                color: $link-hover-color;
+                text-decoration: underline;
+            }
         }
     }
 }
