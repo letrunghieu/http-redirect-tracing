@@ -4,7 +4,7 @@
 <div id='result-page'>
     <h1 id="page-title" class="text-center">
         @if($effectiveUrl)
-        @lang('app.:effective is the effective url of :url', ['url' => $inputUrl, 'effective' => $effectiveUrl])
+        @lang('app.:effective is the effective url of', ['effective' => $effectiveUrl])
         @else
         @lang('app.tracing result of :url', ['url' => $inputUrl])
         @endif
@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <div class="url-input">
-                            {!! Form::text('url', $inputUrl, ['class' => 'form-control', 'placeholder' => trans('form.enter your url here')]) !!}
+                            {!! Form::text('url', $inputUrl, ['class' => 'form-control', 'placeholder' => trans('form.enter your url here'), 'required' => true]) !!}
                         </div>
                     </div>
                     <div class="col-sm-3">
