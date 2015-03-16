@@ -30,6 +30,27 @@ body {
     }
 }
 
+#index-page {
+    h1 {
+        font-size: 9vw;
+        color: #006D51;
+        @media (min-width: $screen-sm-min) {
+            font-size: 4vw;
+        }
+        img {
+            width: 35vw;
+            height: auto;
+            margin: 0 auto 10px;
+            display: block;
+            @media (min-width: $screen-sm-min) {
+                width: 10vw;
+                margin: 0;
+                display: inline;
+            }
+        }
+    }
+}
+
 #result-page {
     a {
         font-family: $font-family-monospace;
