@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Request;
 use App\Http\Requests\ProcessFormRequest;
@@ -7,25 +9,23 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\History;
 
 class AppController extends Controller {
-
     /*
-    |--------------------------------------------------------------------------
-    | Welcome Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller renders the "marketing page" for the application and
-    | is configured to only allow guests. Like most of the other sample
-    | controllers, you are free to modify or remove it as you desire.
-    |
-    */
+      |--------------------------------------------------------------------------
+      | Welcome Controller
+      |--------------------------------------------------------------------------
+      |
+      | This controller renders the "marketing page" for the application and
+      | is configured to only allow guests. Like most of the other sample
+      | controllers, you are free to modify or remove it as you desire.
+      |
+     */
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         // $this->middleware('guest');
     }
 
@@ -34,46 +34,48 @@ class AppController extends Controller {
      *
      * @return Response
      */
-    public function index()
-    {
+    public function index() {
         return view('index');
     }
 
-    public function process(ProcessFormRequest $request) 
-    {
+    public function process(ProcessFormRequest $request) {
         $url = $request->getInputUrl();
 
         $redirectUrl = \URL::action('AppController@view') . "?" . SingleViewRequest::generateQueryString($url);
 
-        return \Redirect::to(L10n::getLocalizedURL($redirectUrl));
+        return \Redirect::to(\L10n::getLocalizedURL(\L10n::getCurrentLocale(), $redirectUrl));
     }
 
-    public function view(SingleViewRequest $request)
-    {
-        $url = $request->getInputUrl();
-
-        $client = new Client;
-        $history = new History;
-
-        $client->getEmitter()->attach($history);
-
-        $response = $client->get($url);
-
+    public function view(SingleViewRequest $request) {
+        $url  = $request->getInputUrl();
         $data = [
             'effectiveUrl' => false,
+            'inputUrl' => $url,
         ];
-        $data['inputUrl'] = $url;
-        $data['effectiveUrl'] = $response->getEffectiveUrl();
-        $data['history'] = [];
-        foreach($history as $transaction)
-        {
-            $item = [
-                'url' => $transaction['response']->getEffectiveUrl(),
-                'header' => $transaction['response']->getHeaders(), 
-                'statusCode' => $transaction['response']->getStatusCode(),
-            ];
-            
-            $data['history'][] = $item;
+        try {
+            $client  = new Client;
+            $history = new History;
+
+            $client->getEmitter()->attach($history);
+            $response = $client->get($url);
+
+            $data['effectiveUrl'] = $response->getEffectiveUrl();
+            $data['history']      = [];
+            foreach ($history as $transaction) {
+                $item = [
+                    'url'        => $transaction['response']->getEffectiveUrl(),
+                    'header'     => $transaction['response']->getHeaders(),
+                    'statusCode' => $transaction['response']->getStatusCode(),
+                ];
+
+                $data['history'][] = $item;
+            }
+        }
+        catch (\GuzzleHttp\Exception\RequestException $ex) {
+            $data['error']   = $ex->getMessage();
+            if ($ex->hasResponse()) {
+                $data['response'] = \GuzzleHttp\Message\Response::getStartLineAndHeaders($ex->getResponse());
+            }
         }
 
         return view('view', $data);

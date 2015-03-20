@@ -10,7 +10,7 @@
         <div class="col-md-8 col-md-offset-2 text-center">
             {!! Form::open(['action' => 'AppController@process']) !!}
             <p class="description text-muted">
-            @lang('app.enter an URL and see details how many times the browser redirect you')
+                @lang('app.enter an URL and see details how many times the browser redirect you')
             </p>
             <div class="form-group form-group-lg url-input">
                 {!! Form::text('url', null, ['class' => 'form-control input-lg', 'placeholder' => trans('form.enter your url here'), 'required' => true]) !!}

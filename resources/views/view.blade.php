@@ -47,21 +47,30 @@
                 </div>
                 <div class="http-header">
                     <table class="table table-bordered table-condensed">
-                    @foreach($h['header'] as $name => $value)
+                        @foreach($h['header'] as $name => $value)
                         <tr class="{{ $name == 'Location' ? 'highlight' : '' }}">
                             <th scope="row">
-                            {{ $name }}
+                                {{ $name }}
                             </th>
                             <td>
-                            {{ implode(', ', $value) }}
+                                {{ implode(', ', $value) }}
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </table>
                 </div>
             </div>
         </div>
         @endforeach
+    </div>
+    @else
+    <div id="error-detail">
+        <p class="alert alert-danger text-center">
+            {{ $error }}
+        </p>
+        @if (isset($response))
+        <pre class="error-reponse">{{ $response }}</pre>
+        @endif
     </div>
     @endif
 </div>

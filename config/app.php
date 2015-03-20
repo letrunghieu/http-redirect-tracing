@@ -13,7 +13,7 @@ return [
       |
      */
 
-    'debug' => env('APP_DEBUG'),
+    'debug'           => env('APP_DEBUG'),
     /*
       |--------------------------------------------------------------------------
       | Application URL
@@ -24,7 +24,7 @@ return [
       | your application so that it is used when running Artisan tasks.
       |
      */
-    'url' => 'http://localhost',
+    'url'             => 'http://localhost',
     /*
       |--------------------------------------------------------------------------
       | Application Timezone
@@ -35,7 +35,7 @@ return [
       | ahead and set this to a sensible default for you out of the box.
       |
      */
-    'timezone' => 'UTC',
+    'timezone'        => 'UTC',
     /*
       |--------------------------------------------------------------------------
       | Application Locale Configuration
@@ -46,7 +46,7 @@ return [
       | to any of the locales which will be supported by the application.
       |
      */
-    'locale' => 'en',
+    'locale'          => 'en',
     /*
       |--------------------------------------------------------------------------
       | Application Fallback Locale
@@ -68,8 +68,8 @@ return [
       | will not be safe. Please do this before deploying an application!
       |
      */
-    'key' => env('APP_KEY', '26qTfVqT1BmLn71cOdHjustbiAnfNfh2'),
-    'cipher' => MCRYPT_RIJNDAEL_128,
+    'key'             => env('APP_KEY', '26qTfVqT1BmLn71cOdHjustbiAnfNfh2'),
+    'cipher'          => MCRYPT_RIJNDAEL_128,
     /*
       |--------------------------------------------------------------------------
       | Logging Configuration
@@ -82,7 +82,7 @@ return [
       | Available Settings: "single", "daily", "syslog", "errorlog"
       |
      */
-    'log' => 'daily',
+    'log'             => 'daily',
     /*
       |--------------------------------------------------------------------------
       | Autoloaded Service Providers
@@ -93,7 +93,7 @@ return [
       | this array to grant expanded functionality to your applications.
       |
      */
-    'providers' => [
+    'providers'       => [
 
         /*
          * Laravel Framework Service Providers...
@@ -144,7 +144,7 @@ return [
       | the aliases are "lazy" loaded so they don't hinder performance.
       |
      */
-    'aliases' => [
+    'aliases'         => [
 
         'App'       => 'Illuminate\Support\Facades\App',
         'Artisan'   => 'Illuminate\Support\Facades\Artisan',
@@ -181,12 +181,5 @@ return [
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'L10n'      => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization'
-    ],
-    /*
-     * Supported languages
-     */
-    'locales' => [
-        'en' => 'English',
-        'vi' => 'Tiếng Việt',
     ],
 ];

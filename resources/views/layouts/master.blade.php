@@ -60,22 +60,21 @@
             <p class="languages">
                 <?php
                 $currentLocale = L10n::getCurrentLocale();
-                foreach(L10n::getSupportedLocales() as $localeCode => $properties) 
-                {
+                foreach (L10n::getSupportedLocales() as $localeCode => $properties) {
                     $localeUrl = L10n::getLocalizedURL($localeCode);
-                    $langs[] = Html::link($localeUrl, $properties['native'], ['class' => ($currentLocale == $localeCode ? 'disabled' : ''), 'hreflang' => $localeCode, 'rel' => 'alternate']);
+                    $langs[]   = Html::link($localeUrl, $properties['native'], ['class' => ($currentLocale == $localeCode ? 'disabled' : ''), 'hreflang' => $localeCode, 'rel' => 'alternate']);
                 }
                 ?>
 
                 {!! implode(' - ', $langs) !!}
             </p>
-            
+
             <p>
-            @lang('app.source code is released under AGPL license')
-            - 
-            <a href="https://github.com/letrunghieu/http-redirect-tracing">
-            Github
-            </a>
+                @lang('app.source code is released under AGPL license')
+                - 
+                <a href="https://github.com/letrunghieu/http-redirect-tracing">
+                    Github
+                </a>
             </p>
 
         </footer>
