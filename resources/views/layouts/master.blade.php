@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="{{ App::getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="../" class="navbar-brand">
+                    <a href="{{ L10n::getLocalizedURL(null, '/') }}" class="navbar-brand">
                         @lang("app.name")
                     </a>
                 </div>
@@ -56,18 +56,20 @@
         </div>
 
         <footer id="site-footer" class="text-center">
-            {!! Form::open(['name' => 'langugage-form', 'class' => 'form-inline']) !!}
-            <?php
-            $langs = [];
-            $currentLocale = App::getLocale();
-            foreach(config('app.locales', []) as $lang => $label) 
-            {
-                $langs[] = Form::submit($label, ['name' => $lang, 'class' => 'btn btn-link', 'disabled' => ($currentLocale == $lang ? : null)]);
-            }
-            ?>
-            {!! implode(' - ', $langs) !!}
-            {!! Form::close() !!}
 
+            <p class="languages">
+                <?php
+                $currentLocale = L10n::getCurrentLocale();
+                foreach(L10n::getSupportedLocales() as $localeCode => $properties) 
+                {
+                    $localeUrl = L10n::getLocalizedURL($localeCode);
+                    $langs[] = Html::link($localeUrl, $properties['native'], ['class' => ($currentLocale == $localeCode ? 'disabled' : ''), 'hreflang' => $localeCode, 'rel' => 'alternate']);
+                }
+                ?>
+
+                {!! implode(' - ', $langs) !!}
+            </p>
+            
             <p>
             @lang('app.source code is released under AGPL license')
             - 

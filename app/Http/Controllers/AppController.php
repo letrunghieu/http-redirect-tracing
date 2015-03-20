@@ -44,8 +44,8 @@ class AppController extends Controller {
         $url = $request->getInputUrl();
 
         $redirectUrl = \URL::action('AppController@view') . "?" . SingleViewRequest::generateQueryString($url);
-        
-        return \Redirect::to($redirectUrl);
+
+        return \Redirect::to(L10n::getLocalizedURL($redirectUrl));
     }
 
     public function view(SingleViewRequest $request)

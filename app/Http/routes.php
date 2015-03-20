@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', 'AppController@index');
+
 Route::post('/process', 'AppController@process');
-Route::get('/view', 'AppController@view');
 
-Route::get('home', 'HomeController@index');
+Route::group(['prefix' => L10n::setLocale(), 'middleware' => [ 'localizationRedirect' ]], function()
+{
+    Route::get('/', 'AppController@index');
+    Route::get('/view', 'AppController@view');
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);

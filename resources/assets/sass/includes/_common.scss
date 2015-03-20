@@ -51,14 +51,12 @@ body {
         &:hover {
             color: $gray-darker;
         }
-    }
-    form {
-        padding-bottom: 1em;
-    }
-    .btn {
-        padding: 0;
-        color: $gray-dark;
-        font-size: ceil($font-size-base * 0.9);
+        &.disabled {
+            color: $gray-light;
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 }
 
