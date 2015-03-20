@@ -60,7 +60,7 @@
             <?php
             $langs = [];
             $currentLocale = App::getLocale();
-            foreach(Config::get('app.locales', []) as $lang => $label) 
+            foreach(config('app.locales', []) as $lang => $label) 
             {
                 $langs[] = Form::submit($label, ['name' => $lang, 'class' => 'btn btn-link', 'disabled' => ($currentLocale == $lang ? : null)]);
             }
