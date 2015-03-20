@@ -8,4 +8,5 @@ return [
 ',
     'tracing result of :url' => 'Tracing result of: <a href=":url">:url</a>',
     ':effective is the effective url of' => '<a href=":effective">:effective</a> is the effective URL of',
+    'source code is released under AGPL license' => 'Source code is released under <a href="https://github.com/letrunghieu/http-redirect-tracing/blob/master/LICENSE">AGPL</a> license',
 ];

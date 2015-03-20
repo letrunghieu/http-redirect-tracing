@@ -19,7 +19,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header class="navbar navbar-default navbar-static-top" id="top" role="banner">
+        <header class="navbar navbar-default navbar-fixed-top" id="top" role="banner">
             <div class="container">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -54,6 +54,23 @@
                 @yield('content')
             </div>
         </div>
+
+        <footer id="site-footer" class="text-center">
+            {!! Form::open(['name' => 'langugage-form', 'class' => 'form-inline']) !!}
+            {!! Form::submit('English', ['name' => 'en', 'class' => 'btn btn-link']) !!}
+            -
+            {!! Form::submit('Tiếng Việt', ['name' => 'vi', 'class' => 'btn btn-link']) !!}
+            {!! Form::close() !!}
+
+            <p>
+            @lang('app.source code is released under AGPL license')
+            - 
+            <a href="https://github.com/letrunghieu/http-redirect-tracing">
+            Github
+            </a>
+            </p>
+
+        </footer>
         <script src="{{ elixir('js/app.js') }}"></script>
     </body>
 </html>
