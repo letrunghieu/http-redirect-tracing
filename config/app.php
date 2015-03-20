@@ -197,4 +197,12 @@ return [
 
 	],
 
+	/*
+	 * Supported languages
+	 */
+	'locales' => [
+		'en' => 'English',
+		'vi' => 'Tiếng Việt',
+	],
+
 ];

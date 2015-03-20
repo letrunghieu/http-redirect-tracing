@@ -57,9 +57,15 @@
 
         <footer id="site-footer" class="text-center">
             {!! Form::open(['name' => 'langugage-form', 'class' => 'form-inline']) !!}
-            {!! Form::submit('English', ['name' => 'en', 'class' => 'btn btn-link']) !!}
-            -
-            {!! Form::submit('Tiếng Việt', ['name' => 'vi', 'class' => 'btn btn-link']) !!}
+            <?php
+            $langs = [];
+            $currentLocale = App::getLocale();
+            foreach(Config::get('app.locales', []) as $lang => $label) 
+            {
+                $langs[] = Form::submit($label, ['name' => $lang, 'class' => 'btn btn-link', 'disabled' => ($currentLocale == $lang ? : null)]);
+            }
+            ?>
+            {!! implode(' - ', $langs) !!}
             {!! Form::close() !!}
 
             <p>
