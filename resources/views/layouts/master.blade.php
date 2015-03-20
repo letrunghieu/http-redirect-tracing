@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="{{ App::getLocale() }}">
+<html class="no-js" lang="{{ L10n::getCurrentLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
