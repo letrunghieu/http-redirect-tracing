@@ -60,7 +60,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">
-                    @lang('app.errors.page not found')
+                    @lang('app.errors.there are somethings wrong')
                 </div>
                 <div class="links">
                     <a href="{{ URL::to('/') }}">
