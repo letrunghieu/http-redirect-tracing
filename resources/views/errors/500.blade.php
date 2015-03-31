@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html lang="{{L10n::getCurrentLocale()}}">
     <head>
         <meta charset="utf-8" />
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
         <title>404 - @lang('app.errors.page not found')</title>
         <style>
             body {
