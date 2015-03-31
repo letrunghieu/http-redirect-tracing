@@ -133,6 +133,7 @@ return [
          * Vendors Service Providers
          */
         'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider',
+        'Fideloper\Proxy\TrustedProxyServiceProvider',
     ],
     /*
       |--------------------------------------------------------------------------
