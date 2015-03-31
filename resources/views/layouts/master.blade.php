@@ -9,8 +9,8 @@
 
         {!! favicon(FAVICON_ENABLE_ALL, ['tile_color' => '#006D51']) !!}
 
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
         <script src="{{ elixir('js/modernizr.js') }}"></script>
     </head>
