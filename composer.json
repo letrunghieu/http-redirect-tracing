@@ -5,6 +5,7 @@
 	"license": "AGPL",
 	"type": "project",
 	"require": {
+		"ext-imagick": "*",
 		"laravel/framework": "5.0.*",
 		"guzzlehttp/guzzle": "~5.0",
 		"illuminate/html": "5.0.*",
