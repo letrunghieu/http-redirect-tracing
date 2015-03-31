@@ -5,6 +5,9 @@
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
         <title>404 - @lang('app.errors.page not found')</title>
         <style>
+            html {
+                height: 100%;
+            }
             body {
                 margin: 0;
                 padding: 0;

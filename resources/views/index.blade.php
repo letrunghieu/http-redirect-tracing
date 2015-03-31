@@ -3,7 +3,7 @@
 @section('content')
 <div id="index-page">
     <h1 id="page-title" class="text-center">
-        <img src="{{ asset('img/http-redirect-tracing-logo.png') }}" alt="logo" width="256" height="256" class="logo"/>
+        <img src="/img/http-redirect-tracing-logo.png" alt="logo" width="256" height="256" class="logo"/>
         @lang('app.http redirect tracing')
     </h1>
     <div class="row">
