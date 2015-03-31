@@ -33,7 +33,7 @@
 		"post-install-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
-			"gulp"
+			"gulp --production"
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
