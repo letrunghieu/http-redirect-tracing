@@ -8,6 +8,7 @@
     </h1>
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
+            <?php var_dump(Request::secure()) ?>
             {!! Form::open(['action' => 'AppController@process']) !!}
             <p class="description text-muted">
                 @lang('app.enter an URL and see details how many times the browser redirect you')
