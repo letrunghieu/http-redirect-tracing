@@ -134,6 +134,7 @@ return [
          */
         'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
+        'Barryvdh\TranslationManager\ManagerServiceProvider',
     ],
     /*
       |--------------------------------------------------------------------------
